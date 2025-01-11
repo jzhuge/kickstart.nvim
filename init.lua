@@ -268,6 +268,8 @@ require('lazy').setup({
   --            })
   --        end,
   --    }
+
+  'github/copilot.vim', -- Copilot
   --
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`.
