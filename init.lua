@@ -704,7 +704,9 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     -- clangd = {},
-    gopls = {},
+    gopls = {
+      filetypes = { 'go', 'gomod', 'gowork' },
+    },
     -- pyright = {},
     -- rust_analyzer = {},
     --
