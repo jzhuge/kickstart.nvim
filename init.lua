@@ -810,7 +810,22 @@ do
 end
 
 -- ============================================================
--- SECTION 10: OPTIONAL EXAMPLES / NEXT STEPS
+-- SECTION 8: TREESITTER
+-- Native Neovim parser highlighting
+-- ============================================================
+do
+  vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Start native treesitter when a parser is available',
+    group = vim.api.nvim_create_augroup('kickstart-treesitter', { clear = true }),
+    callback = function(args)
+      local lang = vim.treesitter.language.get_lang(args.match)
+      if lang and vim.treesitter.language.add(lang) then pcall(vim.treesitter.start, args.buf, lang) end
+    end,
+  })
+end
+
+-- ============================================================
+-- SECTION 9: OPTIONAL EXAMPLES / NEXT STEPS
 -- kickstart.plugins.* examples
 -- ============================================================
 do
